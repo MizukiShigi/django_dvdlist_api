@@ -9,12 +9,13 @@ from rest_framework import status
 from django.db import connection, transaction
 from django.http import Http404
 from rest_framework.settings import api_settings
+from .dbconnect import conn
 import psycopg2
 import psycopg2.extras
-
 import json
 import logging
-conn = psycopg2.connect(database="dvd", user="postgres", password="22063shi")
+
+
 cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
 cursor = connection.cursor()
 logger = logging.getLogger('dvdapi')
